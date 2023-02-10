@@ -15,16 +15,19 @@ namespace SnakeAndLadder
 
             const int FirstPosition = 0;
             int position = 0;
+            int dieCount = 0;
             Console.WriteLine("Start Positon is : " + FirstPosition);
             while (position < 100)
             {
 
                 Random random = new Random();
                 int dicethrown = random.Next(1, 7);
+                dieCount++; 
                 Console.WriteLine("\nDies Output is :" + dicethrown);
 
                 Random random2 = new Random();
                 int options = random.Next(1, 4);
+
                 if (options == 1)
                 {
                     Console.WriteLine("Player got no play");
@@ -62,6 +65,7 @@ namespace SnakeAndLadder
                     break;
                 }
             }
+            Console.WriteLine("die count : " + dieCount);
             Console.ReadLine();
         }
     }
