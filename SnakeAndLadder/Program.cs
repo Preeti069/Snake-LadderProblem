@@ -48,10 +48,19 @@ namespace SnakeAndLadder
                     }
                     Console.WriteLine("The player position is: " + position);
                 }
-                if (position > 100) position -= dicethrown;
-                if (position < 0) position = 0;
-
-                if (position == 100) Console.WriteLine("player has won");
+                if (position > 100)
+                {
+                    position = position - dicethrown;
+                }
+                else if (position < 0)
+                {
+                    position = 0;
+                }
+                else if (position == 100)
+                {
+                    Console.WriteLine("player has won");
+                    break;
+                }
             }
             Console.ReadLine();
         }
