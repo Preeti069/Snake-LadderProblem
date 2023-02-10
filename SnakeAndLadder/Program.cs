@@ -16,34 +16,42 @@ namespace SnakeAndLadder
             const int FirstPosition = 0;
             int position = 0;
             Console.WriteLine("Start Positon is : " + FirstPosition);
-            Random random = new Random();
-            int dicethrown = random.Next(1, 7);
-            Console.WriteLine("\nDies Output is :" + dicethrown);
+            while (position < 100)
+            {
 
-            Random random2 = new Random();
-            int options = random.Next(1, 4);
-            if (options == 1)
-            {
-                Console.WriteLine("Player got no play");
-                dicethrown = 0;
-                position = dicethrown;
-                Console.WriteLine("The player position is: " + position);
-            }
-            else if (options == 2)
-            {
-                Console.WriteLine("Player got ladder");
-                position = (position + dicethrown);
-                Console.WriteLine("The player position is: " + position);
-            }
-            else
-            {
-                Console.WriteLine("Player got snake");
-                position = (position - dicethrown);
-                if (position < 0)
+                Random random = new Random();
+                int dicethrown = random.Next(1, 7);
+                Console.WriteLine("\nDies Output is :" + dicethrown);
+
+                Random random2 = new Random();
+                int options = random.Next(1, 4);
+                if (options == 1)
                 {
-                    position = FirstPosition;
+                    Console.WriteLine("Player got no play");
+                    dicethrown = 0;
+                    position = dicethrown;
+                    Console.WriteLine("The player position is: " + position);
                 }
-                Console.WriteLine("The player position is: " + position);
+                else if (options == 2)
+                {
+                    Console.WriteLine("Player got ladder");
+                    position = (position + dicethrown);
+                    Console.WriteLine("The player position is: " + position);
+                }
+                else
+                {
+                    Console.WriteLine("Player got snake");
+                    position = (position - dicethrown);
+                    if (position < 0)
+                    {
+                        position = FirstPosition;
+                    }
+                    Console.WriteLine("The player position is: " + position);
+                }
+                if (position > 100) position -= dicethrown;
+                if (position < 0) position = 0;
+
+                if (position == 100) Console.WriteLine("player has won");
             }
             Console.ReadLine();
         }
